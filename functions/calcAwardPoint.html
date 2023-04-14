@@ -48,7 +48,7 @@
     // Allow client to verify pre-condition
     function isNonNegativeNumber (val) {
       // returns true if val is a number and is >=0, false otherwise
-      return (!Number.isNaN(val) && val >= 0);
+      return (typeof val === "number" && !Number.isNaN(val) && val >= 0);
     }
 
 
