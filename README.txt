@@ -10,4 +10,4 @@ Members:
 We have decided to use plain JavaScript to do this problem solving, hence it can be run on any web browser.
 
 How to run?
-Run the html files in the /functions folder directly in any web browser, and follow the instructions shown to test the JavaScript functions.
+Open the html files in the /functions folder directly in any web browser, and follow the instructions shown to test the JavaScript functions via the browser's console.
