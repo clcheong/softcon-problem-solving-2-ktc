@@ -6,3 +6,6 @@ Members:
 - Yong Jing Xuan (A19EC0177)
 - Tai Wen Jun (A19EC0207)
 - Md. Shadman Sakib (A18CS4062)
+
+
+Run the html files in the /function folder directly in any web browser, and follow the instructions shown to test the functions.
