@@ -8,4 +8,4 @@ Members:
 - Md. Shadman Sakib (A18CS4062)
 
 
-Run the html files in the /function folder directly in any web browser, and follow the instructions shown to test the functions.
+Run the html files in the /functions folder directly in any web browser, and follow the instructions shown to test the functions.
