@@ -17,7 +17,7 @@
     <h1>to open console for testing.</h1>
   
     <br>
-    <p style="font-size: 20px;">Enter "<b>isValidEmail( anyValueHere )</b>" or "<b>isValidPhoneNumber( anyValueHere )</b>" into the console to verify pre-condition.</p>
+    <p style="font-size: 20px;">Enter "<b>isValidName( anyValueHere )</b>" or "<b>isValidEmail( anyValueHere )</b>" or "<b>isValidPhoneNumber( anyValueHere )</b>" into the console to verify pre-condition.</p>
     <br>
     <p style="font-size: 20px;">Enter "<b>editProfile( name, phoneNum, email )</b>" into the console to test the function.</p>
     <br>
@@ -44,6 +44,12 @@
         }
     }
 
+    // Allow client to test name pre-condition
+    function isValidName(name) {
+
+        return (typeof name === 'string');
+    }
+    
     // Allow client to test email pre-condition
     function isValidEmail(email) {
         // format: [any name]@[any domain].com
@@ -66,6 +72,7 @@
     // Pre-Condition:
     // 1) phoneNum must be a string with the format: [3 digits]-[7 or 8 digits]
     // 2) email must be a string with the format:  [any name]@[any domain].com
+    // 3) name must be a string.
     // Throw exceptions to notify client of the errors if not met.
 
     // Process:
@@ -75,7 +82,9 @@
     // the email and phoneNum of the updatedProfile should be in the valid format.
     function editProfile(name, phoneNum, email) {
         try {
-            
+            // Verify pre-condition of name
+            assert(isValidName(name), "Name must be a string!");
+
             // Verify pre-condition of phone number format
             assert(isValidPhoneNumber(phoneNum), "Invalid Phone Number! The phone number should be a string in the format of [3 digits]-[7 or 8 digits]");
 
