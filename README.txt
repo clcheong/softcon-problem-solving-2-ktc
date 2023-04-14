@@ -14,4 +14,4 @@ Option 1 (locally):
 Open the html files in the /functions folder directly in any web browser, and follow the instructions shown to test the JavaScript functions via the browser's console.
 
 Option 2 (Using hosted URL):
-clcheong.github.io/problem-solving-2-ktc/
+clcheong.github.io/softcon-problem-solving-2-ktc/
