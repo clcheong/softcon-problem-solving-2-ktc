@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calcAwardPoint</title>
+</head>
+<body>
+  <h1>[Shift] + [Ctrl] + I</h1>
+  <h3>OR</h3>
+  <h1>[F12]</h1>
+  <h1>to open console for testing.</h1>
+
+  <br>
+  <p style="font-size: 20px;">Enter "<b>isNonNegativeNumber( anyValueHere )</b>" into the console to verify pre-condition.</p>
+  <br>
+  <p style="font-size: 20px;">Enter "<b>calculateAwardPoints( transactionAmount, pointRate )</b>" into the console to test the function.</p>
+</body>
+
+<script>
+    // Assertion function for pre-condition verification
+    function assert(condition, message) {
+      if (!condition) {
+        throw new Error(message);
+      }
+    }
+
+    // Invariant function for post-condition verification
+    function invariant(condition, message) {
+      if (!condition) {
+        throw new Error(message);
+      }
+    }
+
+
+    // Allow client to verify pre-condition
+    function isNonNegativeNumber (val) {
+      // returns true if val is a number and is >=0, false otherwise
+      return (!Number.isNaN(val) && val >= 0);
+    }
+
+
+    // The calculateAwardPoints function calculates the awardPoints based on transactionAmount and pointRate.
+    // Formula: awardPoints = transactionAmount * pointRate
+
+    // Pre-Condition:
+    // 1) transactionAmount must be a number that is >= 0
+    // 2) pointRate must be a number that is >= 0
+    // Throw exceptions to notify client of the error if not met.
+
+    // Post-Condition:
+    // awardPoints must be a number that is >= 0
+    // Should crash if not met, so return it with "Unexpected error occured."
+
+    function calculateAwardPoints(transactionAmount, pointRate) {
+
+      try {
+
+        //assert to check pre-condition that transactionAmount and pointRate are numbers that are >= 0
+        assert(isNonNegativeNumber(transactionAmount), 'Total transaction must be a non-negative number!');
+        assert(isNonNegativeNumber(pointRate), 'Point rate must be a none-negative number!');
+
+        const awardPoints = transactionAmount * pointRate;
+
+        //invariant to check post-condition that awardPoints must be a number that is >= 0
+        invariant(isNonNegativeNumber(awardPoints), "We're sorry, an unexpected error occured.");
+        
+        return awardPoints;
+
+      } catch (e) {
+        console.log(e);
+      }
+
+    }
+
+</script>
+
+</html>
