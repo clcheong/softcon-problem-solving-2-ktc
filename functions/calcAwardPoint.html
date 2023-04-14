@@ -49,6 +49,9 @@
     // 2) pointRate must be a number that is >= 0
     // Throw exceptions to notify client of the error if not met.
 
+    // Process:
+    // awardPoints = transactionAmount * pointRate
+
     // Post-Condition:
     // awardPoints must be a number that is >= 0
     // Should crash if not met, so return it with "Unexpected error occured."
@@ -61,6 +64,7 @@
         assert(isNonNegativeNumber(transactionAmount), 'Total transaction must be a non-negative number!');
         assert(isNonNegativeNumber(pointRate), 'Point rate must be a none-negative number!');
 
+        // Process
         const awardPoints = transactionAmount * pointRate;
 
         //invariant to check post-condition that awardPoints must be a number that is >= 0

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createMembershipLevel</title>
+</head>
+<body>
+    <h1>[Shift] + [Ctrl] + I</h1>
+    <h3>OR</h3>
+    <h1>[F12]</h1>
+    <h1>to open console for testing.</h1>
+  
+    <br>
+    <p style="font-size: 20px;">Enter "<b>isValidEmail( anyValueHere )</b> or <b>isValidPhoneNumber( anyValueHere )</b>" into the console to verify pre-condition.</p>
+    <br>
+    <p style="font-size: 20px;">Enter "<b>editProfile( name, phoneNum, email )</b>" into the console to test the function.</p>
+  </body>
+
+  <script>
+    // Assertion function for pre-condition verification
+    function assert(condition, message) {
+        if (!condition) {
+            throw new Error(message);
+        }
+    }
+  
+    // Invariant function for post-condition verification
+    function invariant(condition, message) {
+        if (!condition) {
+            throw new Error(message);
+        }
+    }
+
+    // Allow client to test email pre-condition
+    function isValidEmail(email) {
+        // format: [any name]@[any domain].com
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        return (typeof email === 'string' && regex.test(email));
+    }
+
+    // Allow client to test phone num pre-condition
+    function isValidPhoneNumber(number) {
+        // format: [3 digits]-[7 or 8 digits]
+        const regex = /^\d{3}-\d{7,8}$/;
+
+        return (typeof number === 'string' && regex.test(number));
+    }
+      
+
+    // The editProfile function will update the name, phoneNum, and email of the user.
+
+    // Pre-Condition:
+    // 1) phoneNum must be a string with the format: [3 digits]-[7 or 8 digits]
+    // 2) email must be a string with the format:  [any name]@[any domain].com
+    // Throw exceptions to notify client of the errors if not met.
+
+    // Process:
+    // updatedProfile.name = name, updatedProfile.phoneNum = phoneNum, updatedProfile.email = email
+
+    // Post-Condition:
+    // the email and phoneNum of the updatedProfile should be in the valid format.
+    function editProfile(name, phoneNum, email) {
+        try {
+            
+            // Verify pre-condition of phone number format
+            assert(isValidPhoneNumber(phoneNum), "Invalid Phone Number! The phone number should be a string in the format of [3 digits]-[7 or 8 digits]");
+
+            // Verify pre-condition of email address format
+            assert(isValidEmail(email), "Invalid Email Format! The email address should be a string in the format of [any name]@[any domain].com");
+
+            // Process: Update Profile
+            const updatedProfile = {
+                name,
+                phoneNum,
+                email
+            }
+
+            // Verify post-condition of email address & phone number format
+            invariant((isValidEmail(updatedProfile.email) && isValidPhoneNumber(updatedProfile.phoneNum)), "We're sorry, an unexpected error occured.");
+
+            return updatedProfile;
+
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+  </script>
+</html>
